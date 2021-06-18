@@ -12,13 +12,13 @@ app = Flask(__name__)
 
 #for using the forms securely we are setting the secret key ,
 # A secret key will protect against the modifying cookies, cross site request forgery attacks, etc.
-app.config['SECRET_KEY'] = "e8f50a95048a25e9dd7dfd59452a90e4"
+app.config['']=''
 #to get a random secret key ,here
 #on the cmd we have used following commands
 #python (to open python interpreter)
 #import secrets
 #secrets.token_hex(16)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///site.db'
+app.config['']=''
 
 db=SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -30,14 +30,14 @@ login_manager.login_message_category='info'
 
 #setting necessary constants like MAIL_SERVER,MAIL_PORT and whether to use TLS or not, to send mail.
 # here we are using mail server of gmail.
-app.config['MAIL_SERVER']='smtp.googlemail.com'
-app.config['MAIL_PORT']=587
-app.config['MAIL_USE_TLS']=True
+app.config['MAIL_SERVER']=''
+app.config['MAIL_PORT']=
+app.config['MAIL_USE_TLS']=
 #for sending any mail to the user we also need a email server so
 #setting the username and password for the email server with which we want to send mails to the user.
 # here below we are setting the username and pass in environment var and then send them for security.
 #check corey schafer's video on environment variables.
-app.config['MAIL_USERNAME']=os.environ.get('EMAIL_USER')
-app.config['MAIL_PASSWORD']=os.environ.get('EMAIL_PASS')
+app.config['MAIL_USERNAME']=
+app.config['MAIL_PASSWORD']=
 mail = Mail(app)
 from Main import routes
