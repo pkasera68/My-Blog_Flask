@@ -1,0 +1,4 @@
+When we move our models from main.py to an another file ,by doing necessary imports then there will be a problem
+of circular imports and we get a lot of errors , so we run our app indirectly by converting our application
+into a package.
+when you try to  import directly from the package Main then it will be imported from __init__.py file.

@@ -1,0 +1,45 @@
+#Queries to create the database after setting its config, and creating its tables:
+#python
+#from main import db
+# db.create_all()
+# from main import User,Post
+# user_1=User(username='pkasera68',email='pk@demo.com',password='12345')
+>>> db.session.add(user_1)
+>>> user_2=User(username='Gani12',email='gani@demo.com',password='12345')
+>>> db.session.add(user_2)
+>>> db.session.commit()
+>>> User.query.all()
+[User('pkasera68','pk@demo.com', '0'), User('Gani12','gani@demo.com', '0')]
+>>> User.query.first()
+>>> User.query.filter_by(username='pkasera68').all()
+>>> User.query.filter_by(username='pkasera68').first()
+>>> user =User.query.first()
+>>> user
+User('pkasera68','pk@demo.com', '0')
+>>> user.id
+1
+>>> user.username
+'pkasera68'
+>>> user.password
+'12345'
+>>> user.posts
+[]
+>>> user = User.query.get(1) #getting a user by id.
+>>> user
+User('pkasera68','pk@demo.com', '0')
+>>> user = User.query.get(2)
+>>> user
+User('Gani12','gani@demo.com', '0')
+
+#creating posts
+
+>>>post_1=Post(title='Post1',content='creating my first post',user_id=user.id)
+>>> post_2=Post(title='Post2',content='creating my first post too.',user_id=user.id)
+>>> db.session.add(post_1)
+>>> db.session.add(post_2)
+>>> db.session.commit()
+>>> user.posts
+>>> post=Post.query.first()
+>>> post.Author #will give user details who is author of this post.
+
+

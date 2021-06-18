@@ -1,0 +1,21 @@
+if we want to generate an email to the user by which he can reset his password , by generating a secure
+time sensitive token which ensures that only the person having access to that email can reset it
+within a specific time,
+then we need to use a package called itsdangerous.
+See the below imports and try them on interpreter:
+
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+ s= Serializer('secret',30)
+ Serializer can be siad as a machine to create the token.
+ here 30 is the no of seconds till which the token or message will be valid.
+
+ setting the token, token is nothing but a time sensitive variable which will expire when its time gets over.
+ token = s.dumps({'user_id':1}).decode('utf-8')
+
+ to see encoded output of token use
+ token
+
+ to see actual value to token use:
+ s.loads(token)
+ it will show token's payload only if it is valid, error otherwise.
+
